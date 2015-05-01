@@ -1,0 +1,25 @@
+{
+  "name": "sails-swagger",
+  "version": "0.0.0",
+  "description": "swagger.io integration for sails.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tjwebb/sails-swagger.git"
+  },
+  "keywords": [
+    "sails",
+    "swagger",
+    "api",
+    "sdk"
+  ],
+  "author": "Travis Webb <me@traviswebb.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjwebb/sails-swagger/issues"
+  },
+  "homepage": "https://github.com/tjwebb/sails-swagger"
+}
