@@ -4,7 +4,8 @@
   "description": "swagger.io integration for sails.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --reporter spec --compilers js:babel/register",
+    "prepublish": "gulp"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,17 @@
   "bugs": {
     "url": "https://github.com/tjwebb/sails-swagger/issues"
   },
-  "homepage": "https://github.com/tjwebb/sails-swagger"
+  "homepage": "https://github.com/tjwebb/sails-swagger",
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "mocha": "^2.2.5",
+    "sails-permissions": "^1.4.2"
+  },
+  "dependencies": {
+    "hoek": "^2.14.0",
+    "lodash": "^3.10.1",
+    "marlinspike": "^0.12.10"
+  }
 }
