@@ -2,7 +2,7 @@
   "name": "sails-swagger",
   "version": "0.0.0",
   "description": "swagger.io integration for sails.js",
-  "main": "index.js",
+  "main": "dist/api/hooks/swagger/index.js",
   "scripts": {
     "test": "mocha --reporter spec --compilers js:babel/register",
     "prepublish": "gulp"
@@ -27,12 +27,15 @@
     "babel": "^5.8.21",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
-    "mocha": "^2.2.5",
-    "sails-permissions": "^1.4.2"
+    "mocha": "^2.2.5"
   },
   "dependencies": {
     "hoek": "^2.14.0",
     "lodash": "^3.10.1",
     "marlinspike": "^0.12.10"
+  },
+  "sails": {
+    "isHook": true,
+    "hookName": "swagger"
   }
 }

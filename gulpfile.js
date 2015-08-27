@@ -2,9 +2,9 @@ var gulp = require('gulp');
 var babel = require('gulp-babel');
 
 gulp.task('default', function () {
-  gulp.src([ 'util.js' ])
+  gulp.src([ 'lib/**' ])
     .pipe(babel())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/lib'));
 
   gulp.src([ 'api/**' ])
     .pipe(babel())
