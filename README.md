@@ -5,7 +5,7 @@
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![Code Climate][codeclimate-image]][codeclimate-url]
 
-[swagger.io](http://swagger.io/) integration for sails.js.
+[swagger.io](http://swagger.io/) (v2.0) hook for [Sails](http://sailsjs.org). The application's models, controllers, and routes are aggregated and transformed in to a Swagger Document. Supports the Swagger 2.0 specification.
 
 ## Install
 
@@ -16,12 +16,11 @@ $ npm install sails-swagger --save
 ## Configuration
 ```js
 // config/swagger.js
-var SailsSwagger = require('sails-swagger/util');
 module.exports.swagger = {
-  schema: {
-    swagger: '2.0',
-    info: SailsSwagger.getInfo(require('../package'))
-  }
+  /**
+   * require() the package.json file for your Sails app.
+   */
+  pkg: require('../package')
 };
 ```
 
