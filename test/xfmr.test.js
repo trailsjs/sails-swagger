@@ -8,7 +8,9 @@ describe('xfmr', () => {
     it('should generate complete and correct Swagger doc', () => {
       let swagger = xfmr.getSwagger(sails, pkg)
 
-      console.log(swagger)
+      assert(swagger)
+
+      //console.log(swagger)
     })
   })
   describe('#getInfo', () => {
