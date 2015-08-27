@@ -27,10 +27,12 @@
   },
   "homepage": "https://github.com/tjwebb/sails-swagger",
   "devDependencies": {
+    "@balderdash/sails-crm": "0.0.0",
     "babel": "^5.8.21",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "sails": "balderdashy/sails"
   },
   "dependencies": {
     "hoek": "^2.14.0",
