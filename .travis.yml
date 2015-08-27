@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - '0.12'
+
+sudo: false
+
+deploy:
+  provider: npm
+  email: tjwebb@balderdash.co
+  api_key:
+    secure: K0RUyAG988D2xdNC6AD+k8xcreihwRicpuROzl6BE4JFsVTB8OmGzSU1slI/jNFduOjL44tq+p0XGEjeIp7qe13DgLmmWuZIwNkBSmvGgD2mkjUHAdb6i8C5IVlW6kkpy9dq6tpdOn0i7ZNSwNd8RCuQ4sI8AZAJB/izhYSODP8=
+  on:
+    tags: true
+    repo: tjwebb/sails-swagger
+    all_branches: true
