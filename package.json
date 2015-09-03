@@ -1,6 +1,6 @@
 {
   "name": "sails-swagger",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "swagger.io integration for sails.js",
   "main": "dist/api/hooks/swagger/index.js",
   "scripts": {
