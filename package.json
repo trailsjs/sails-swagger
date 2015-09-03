@@ -27,7 +27,6 @@
   },
   "homepage": "https://github.com/tjwebb/sails-swagger",
   "devDependencies": {
-    "@balderdash/sails-crm": "latest",
     "babel": "^5.8.21",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",

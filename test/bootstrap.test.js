@@ -3,12 +3,14 @@ import _ from 'lodash'
 import Sails from 'sails'
 
 const config = {
-  appPath: path.resolve(path.dirname(require.resolve('@balderdash/sails-crm')), '../../../../'),
-  hooks: {
-    grunt: false
-  },
+  appPath: path.resolve(__dirname, '..'),
+  hooks: { grunt: false },
   log: { level: 'silent' },
-  port: 1339
+  models: { migrate: 'drop' },
+  port: 1339,
+  swagger: {
+    pkg: require('../package')
+  }
 }
 
 before(function (done) {
