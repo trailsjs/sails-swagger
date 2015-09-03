@@ -3,7 +3,7 @@ import _ from 'lodash'
 import Sails from 'sails'
 
 const config = {
-  appPath: path.dirname(require.resolve('@balderdash/sails-crm')),
+  appPath: path.resolve(path.dirname(require.resolve('@balderdash/sails-crm')), '../../../../'),
   hooks: {
     grunt: false
   },

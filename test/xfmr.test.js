@@ -8,9 +8,8 @@ describe('xfmr', () => {
     it('should generate complete and correct Swagger doc', () => {
       let swagger = xfmr.getSwagger(sails, pkg)
 
-      assert(swagger)
 
-      //console.log(swagger)
+      assert(swagger)
     })
   })
   describe('#getInfo', () => {
@@ -28,8 +27,7 @@ describe('xfmr', () => {
       assert(_.isObject(sails.router._privateRouter.routes))
     })
     it('should transform routes to paths', () => {
-      let allRoutes = sails.router._privateRouter.routes
-      let paths = xfmr.getPaths(allRoutes)
+      let paths = xfmr.getPaths(sails)
 
       assert(paths)
     })
@@ -76,6 +74,20 @@ describe('xfmr', () => {
       let swaggerResponses = xfmr.getResponses(route)
 
       assert(_.isObject(swaggerResponses))
+    })
+  })
+  describe('#getDefinitionReference()', () => {
+    it('should generate a Swagger $ref from a simple path /contact', () => {
+      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, 'GET /contact'))
+    })
+    it('should generate a Swagger $ref from a simple path /address/:id', () => {
+      assert.equal('#/definitions/address', xfmr.getDefinitionReference(sails, 'GET /address/:id'))
+    })
+    it('should generate a Swagger $ref from an association path /contact/:parentid/groups', () => {
+      assert.equal('#/definitions/group', xfmr.getDefinitionReference(sails, 'GET /contact/:parentid/groups'))
+    })
+    it('should generate a Swagger $ref from an association path /organization/:parentid/location/:id', () => {
+      assert.equal('#/definitions/group', xfmr.getDefinitionReference(sails, 'GET /organization/:parentid/groups/:id'))
     })
   })
 })

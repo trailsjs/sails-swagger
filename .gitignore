@@ -1,2 +1,4 @@
+.tmp
+*.sw*
 dist/
 node_modules/
