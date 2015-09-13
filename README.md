@@ -4,6 +4,8 @@
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![Code Climate][codeclimate-image]][codeclimate-url]
+[![Sails Version][sails-version-image]][sails-url]
+
 
 [swagger.io](http://swagger.io/) (v2.0) hook for [Sails](http://sailsjs.org). The application's models, controllers, and routes are aggregated and transformed into a Swagger Document. Supports the Swagger 2.0 specification.
 
@@ -33,11 +35,13 @@ MIT
 ## Maintained By
 ##### [<img src='http://i.imgur.com/zM0ynQk.jpg' height='34px'>](http://balderdash.co)
 
-[npm-image]: https://img.shields.io/npm/v/sails-swagger.svg?style=flat-square
+[sails-version-image]: https://goo.gl/gTUV5x
+[sails-url]: http://sailsjs.org
+[npm-image]: https://img.shields.io/npm/v/sails-swagger.svg?style=flat
 [npm-url]: https://npmjs.org/package/sails-swagger
-[ci-image]: https://img.shields.io/travis/tjwebb/sails-swagger/master.svg?style=flat-square
+[ci-image]: https://img.shields.io/travis/tjwebb/sails-swagger/master.svg?style=flat
 [ci-url]: https://travis-ci.org/tjwebb/sails-swagger
-[daviddm-image]: http://img.shields.io/david/tjwebb/sails-swagger.svg?style=flat-square
+[daviddm-image]: http://img.shields.io/david/tjwebb/sails-swagger.svg?style=flat
 [daviddm-url]: https://david-dm.org/tjwebb/sails-swagger
-[codeclimate-image]: https://img.shields.io/codeclimate/github/tjwebb/sails-swagger.svg?style=flat-square
+[codeclimate-image]: https://img.shields.io/codeclimate/github/tjwebb/sails-swagger.svg?style=flat
 [codeclimate-url]: https://codeclimate.com/github/tjwebb/sails-swagger
