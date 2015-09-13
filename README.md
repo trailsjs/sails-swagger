@@ -35,7 +35,7 @@ MIT
 ## Maintained By
 ##### [<img src='http://i.imgur.com/zM0ynQk.jpg' height='34px'>](http://balderdash.co)
 
-[sails-version-image]: https://goo.gl/WaaKW7
+[sails-version-image]: https://goo.gl/BD30PB
 [sails-url]: http://sailsjs.org
 [npm-image]: https://img.shields.io/npm/v/sails-swagger.svg?style=flat
 [npm-url]: https://npmjs.org/package/sails-swagger
