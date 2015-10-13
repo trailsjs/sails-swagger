@@ -20,7 +20,7 @@ class Swagger extends Marlinspike {
       'routes': {
         '/swagger/doc': {
           cors: {
-            origin: 'http://localhost:8080, http://online.swagger.io',
+            origin: 'http://localhost:8080',
             methods: 'GET,OPTIONS,HEAD'
           },
           controller: 'SwaggerController',
