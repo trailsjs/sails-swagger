@@ -10,7 +10,7 @@ class Swagger extends Marlinspike {
       'swagger': {
         pkg: {
           name: 'No package information',
-          description: 'You should set sails.config.swagger.ui.url to retrieve the content of the package.json file',
+          description: 'You should set sails.config.swagger.pkg to retrieve the content of the package.json file',
           version: '0.0.0'
         },
         ui: {
