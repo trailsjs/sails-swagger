@@ -29,6 +29,9 @@ module.exports.swagger = {
 };
 ```
 
+## Usage
+After installing and configuring swagger, you can find the docs output on the [/swagger/doc](http://localhost:1337/swagger/doc) route.
+
 ## License
 MIT
 
