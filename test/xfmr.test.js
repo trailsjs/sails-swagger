@@ -131,26 +131,57 @@ describe('xfmr', () => {
     })
   })
 
-  describe('#getDefinitionReference()', () => {
+  describe('#getDefinitions()', () => {
+    it('should generate a Swagger Definitions object', () => {
+      let swaggerDefinitions = xfmr.getDefinitions(sails);
+
+      assert(_.isObject(swaggerDefinitions))
+      assert(_.isObject(swaggerDefinitions.contact))
+      assert(_.isObject(swaggerDefinitions.group))
+    })
+    it('should generate a Swagger Definitions object with nested schemas', () => {
+      let swaggerDefinitions = xfmr.getDefinitions(sails);
+
+      assert(_.isObject(swaggerDefinitions.contact))
+      assert.deepEqual({ '$ref': '#/definitions/group' }, swaggerDefinitions.contact.properties.group)
+    })
+
+    context('populate turned off', () => {
+      before(() => {
+        sails.config.blueprints.populate = false
+      })
+      it('should generate a Swagger Definitions object with nested schemas', () => {
+        let swaggerDefinitions = xfmr.getDefinitions(sails);
+
+        assert(_.isObject(swaggerDefinitions.contact))
+        assert.deepEqual({ type: 'integer', format: 'int32' } , swaggerDefinitions.contact.properties.group)
+      })
+      after(() => {
+        sails.config.blueprints.populate = true
+      })
+    })
+  })
+
+  describe('#getDefinitionReferenceFromPath()', () => {
     it('should generate a Swagger $ref from a simple path /contact', () => {
-      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contact'))
+      assert.equal('#/definitions/contact', xfmr.getDefinitionReferenceFromPath(sails, '/contact'))
     })
     it('should generate a Swagger $ref from a simple path /contact/:id', () => {
-      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contact/:id'))
+      assert.equal('#/definitions/contact', xfmr.getDefinitionReferenceFromPath(sails, '/contact/:id'))
     })
     it('should generate a Swagger $ref from an association path /contact/:parentid/groups', () => {
-      assert.equal('#/definitions/group', xfmr.getDefinitionReference(sails, '/contact/:parentid/group'))
+      assert.equal('#/definitions/group', xfmr.getDefinitionReferenceFromPath(sails, '/contact/:parentid/group'))
     })
     it('should generate a Swagger $ref from an association path /group/:parentid/contacts/:id', () => {
-      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/group/:parentid/contacts/:id'))
+      assert.equal('#/definitions/contact', xfmr.getDefinitionReferenceFromPath(sails, '/group/:parentid/contacts/:id'))
     })
     it('should generate a Swagger $ref from a pluralized association path /users', () => {
       sails.models['user'] = { identity: 'user' }
-      assert.equal('#/definitions/user', xfmr.getDefinitionReference(sails, '/users'))
+      assert.equal('#/definitions/user', xfmr.getDefinitionReferenceFromPath(sails, '/users'))
     })
     it('should generate a Swagger $ref from a pluralized association path /memories', () => {
       sails.models['memory'] = { identity: 'memory' }
-      assert.equal('#/definitions/memory', xfmr.getDefinitionReference(sails, '/memories'))
+      assert.equal('#/definitions/memory', xfmr.getDefinitionReferenceFromPath(sails, '/memories'))
     })
   })
 })
