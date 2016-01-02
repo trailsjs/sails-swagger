@@ -11,6 +11,7 @@ describe('xfmr', () => {
       assert(swagger)
     })
   })
+
   describe('#getInfo', () => {
     it('should correctly transform package.json', () => {
       let info = xfmr.getInfo(pkg)
@@ -21,6 +22,7 @@ describe('xfmr', () => {
       assert(_.isString(info.version))
     })
   })
+
   describe('#getPaths', () => {
     it('should be able to access Sails routes', () => {
       assert(_.isObject(sails.router._privateRouter.routes))
@@ -32,24 +34,47 @@ describe('xfmr', () => {
     })
   })
 
-  describe.skip('#getPathItem', () => {
+  describe('#getPathItem', () => {
     it('should generate a Swagger Path Item object from a Sails route', () => {
-      let route = sails.router._privateRouter.routes.get[0]
-      let pathItem = xfmr.getPathItem(route)
+      let pathGroup = [
+        {
+          "path": "/group",
+          "method": "get",
+          "callbacks": [
+            null
+          ],
+          "keys": [],
+          "regexp": {}
+        },
+        {
+          "path": "/group",
+          "method": "post",
+          "callbacks": [
+            null
+          ],
+          "keys": [],
+          "regexp": {}
+        }
+      ]
+
+      let pathItem = xfmr.getPathItem(sails, pathGroup)
 
       assert(_.isObject(pathItem))
       assert(_.isObject(pathItem.get))
+      assert(_.isObject(pathItem.post))
+      assert(_.isUndefined(pathItem.put))
     })
   })
 
-  describe.skip('#getOperation', () => {
+  describe('#getOperation', () => {
     it('should generate a Swagger Operation object from a Sails route', () => {
       let route = sails.router._privateRouter.routes.get[0]
-      let swaggerOperation = xfmr.getOperation(route)
+      let swaggerOperation = xfmr.getOperation(sails, route, 'get')
 
       assert(_.isObject(swaggerOperation))
     })
   })
+
   describe('#getParameters', () => {
     it('should generate an empty array for a Sails route with no keys', () => {
       let route = sails.router._privateRouter.routes.get[0]
@@ -90,7 +115,8 @@ describe('xfmr', () => {
       assert(_.isEmpty(params))
     })
   })
-  describe.skip('#getResponses', () => {
+
+  describe('#getResponses', () => {
     it('should generate a Swagger Responses object from a Sails route', () => {
       let route = sails.router._privateRouter.routes.get[0]
       let swaggerResponses = xfmr.getResponses(route)
@@ -98,6 +124,7 @@ describe('xfmr', () => {
       assert(_.isObject(swaggerResponses))
     })
   })
+
   describe('#getDefinitionReference()', () => {
     it('should generate a Swagger $ref from a simple path /contact', () => {
       assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contact'))
