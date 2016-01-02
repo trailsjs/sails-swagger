@@ -78,16 +78,24 @@ describe('xfmr', () => {
   })
   describe('#getDefinitionReference()', () => {
     it('should generate a Swagger $ref from a simple path /contact', () => {
-      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contact'))
+      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contacts'))
     })
     it('should generate a Swagger $ref from a simple path /contact/:id', () => {
-      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contact/:id'))
+      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contacts/:id'))
     })
     it('should generate a Swagger $ref from an association path /contact/:parentid/groups', () => {
       assert.equal('#/definitions/group', xfmr.getDefinitionReference(sails, '/contact/:parentid/group'))
     })
     it('should generate a Swagger $ref from an association path /group/:parentid/contacts/:id', () => {
       assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/group/:parentid/contacts/:id'))
+    })
+    it('should generate a Swagger $ref from a pluralized association path /users', () => {
+      sails.models['user'] = { identity: 'user' }
+      assert.equal('#/definitions/user', xfmr.getDefinitionReference(sails, '/users'))
+    })
+    it('should generate a Swagger $ref from a pluralized association path /memories', () => {
+      sails.models['memory'] = { identity: 'memory' }
+      assert.equal('#/definitions/memory', xfmr.getDefinitionReference(sails, '/memories'))
     })
   })
 })
