@@ -119,7 +119,7 @@ describe('xfmr', () => {
   describe('#getResponses', () => {
     it('should generate a Swagger Responses object from a Sails route', () => {
       let route = sails.router._privateRouter.routes.get[0]
-      let swaggerResponses = xfmr.getResponses(route)
+      let swaggerResponses = xfmr.getResponses(sails, route)
 
       assert(_.isObject(swaggerResponses))
     })
