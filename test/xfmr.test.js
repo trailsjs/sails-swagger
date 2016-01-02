@@ -123,6 +123,12 @@ describe('xfmr', () => {
 
       assert(_.isObject(swaggerResponses))
     })
+    it('should generate a Swagger Responses object from a Sails route with body', () => {
+      let route = _.findWhere(sails.router._privateRouter.routes.post, {path: '/contact'})
+      let swaggerResponses = xfmr.getResponses(sails, route)
+
+      assert(_.isObject(swaggerResponses['200'].schema))
+    })
   })
 
   describe('#getDefinitionReference()', () => {
