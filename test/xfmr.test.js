@@ -78,10 +78,10 @@ describe('xfmr', () => {
   })
   describe('#getDefinitionReference()', () => {
     it('should generate a Swagger $ref from a simple path /contact', () => {
-      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contacts'))
+      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contact'))
     })
     it('should generate a Swagger $ref from a simple path /contact/:id', () => {
-      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contacts/:id'))
+      assert.equal('#/definitions/contact', xfmr.getDefinitionReference(sails, '/contact/:id'))
     })
     it('should generate a Swagger $ref from an association path /contact/:parentid/groups', () => {
       assert.equal('#/definitions/group', xfmr.getDefinitionReference(sails, '/contact/:parentid/group'))
