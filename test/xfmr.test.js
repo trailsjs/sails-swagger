@@ -74,13 +74,20 @@ describe('xfmr', () => {
       assert.equal(params[0].name, 'contact');
     })
     it('should generate a Swagger Parameters object from a Sails model for PUT endpoints', () => {
-      let route = _.findWhere(sails.router._privateRouter.routes.post, { path: '/contact/:id' })
+      let route = _.findWhere(sails.router._privateRouter.routes.put, { path: '/contact/:id' })
       let params = xfmr.getParameters(sails, route)
 
       assert(_.isArray(params))
       assert.equal(params.length, 2)
       assert.equal(params[0].name, 'id')
       assert.equal(params[1].name, 'contact');
+    })
+    it('should not generate a Swagger Parameters object when there is not a Sails model', () => {
+      let route = _.findWhere(sails.router._privateRouter.routes.post, { path: '/swagger/doc' })
+      let params = xfmr.getParameters(sails, route)
+
+      assert(_.isArray(params))
+      assert(_.isEmpty(params))
     })
   })
   describe.skip('#getResponses', () => {
