@@ -37,7 +37,8 @@
   "dependencies": {
     "hoek": "^2.14.0",
     "lodash": "^3.10.1",
-    "marlinspike": "^0.12.10"
+    "marlinspike": "^0.12.10",
+    "pluralize": "^1.2.1"
   },
   "sails": {
     "isHook": true,
