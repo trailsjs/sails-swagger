@@ -24,6 +24,7 @@ module.exports.swagger = {
    */
   pkg: require('../package'),
   ui: {
+    host: 'localhost:1337',
     url: 'http://swagger.balderdash.io'
   }
 };
