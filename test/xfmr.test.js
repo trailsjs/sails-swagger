@@ -194,6 +194,8 @@ describe('xfmr', () => {
                     skipAssets: 'true',
                     //swagger path object
                     swagger: {
+                        methods: ['GET'],
+
                         summary: ' Get Groups ',
                         description: 'Get Groups Description',
                         produces: [
@@ -235,44 +237,47 @@ describe('xfmr', () => {
         it('#getDefinitionsFromRouteConfig()', () => {
             var results = xfmr.getDefinitionsFromRouteConfig(sails);
 
-            var expectedSwaggerSpec = [{
-                "summary": " Get Groups ",
-                "description": "Get Groups Description",
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Groups"
-                ],
-                "responses": [{
-                    "description": "List of Groups",
-                    "schema": "#/definitions/Group",
-                    "type": "array"
-                }],
-                "parameters": [{
-                        "name": "id",
-                        "in": "path",
-                        "description": "ID of pet to use",
-                        "required": true,
-                        "type": "array",
-                        "items": {
-                            "type": "string"
-                        },
-                        "collectionFormat": "csv"
-                    }, {
-                        "name": "name",
-                        "in": "query",
-                        "description": "ID of pet to use",
-                        "required": true,
-                        "type": "string"
-                    },
-                    "#/definitions/Contact"
-                ]
-            }];
+            var expectedSwaggerSpec = {
+                "get /groups/:id": {
+                    "GET": {
+                        "summary": " Get Groups ",
+                        "description": "Get Groups Description",
+                        "produces": [
+                            "application/json"
+                        ],
+                        "tags": [
+                            "Groups"
+                        ],
+                        "responses": [{
+                            "description": "List of Groups",
+                            "schema": "#/definitions/Group",
+                            "type": "array"
+                        }],
+                        "parameters": [{
+                                "name": "id",
+                                "in": "path",
+                                "description": "ID of pet to use",
+                                "required": true,
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "collectionFormat": "csv"
+                            }, {
+                                "name": "name",
+                                "in": "query",
+                                "description": "ID of pet to use",
+                                "required": true,
+                                "type": "string"
+                            },
+                            "#/definitions/Contact"
+                        ]
+                    }
+                }
+            };
 
-            assert.equal(true, _.every(results, function(result, index) {
-                return _.isEqual(result, expectedSwaggerSpec[index]);
-            }));
+            assert.equal(true,  _.isEqual(results, expectedSwaggerSpec));
+            
         })
 
     })
