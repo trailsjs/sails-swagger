@@ -234,7 +234,7 @@ describe('xfmr', () => {
             })
         })
 
-        it('#getDefinitionsFromRouteConfig()', () => {
+        it('should get swagger definitions from route config', () => {
             var results = xfmr.getDefinitionsFromRouteConfig(sails);
 
             var expectedSwaggerSpec = {
