@@ -3,9 +3,9 @@ const SwaggerController = {
         res.status(200).jsonx(sails.hooks.swagger.doc)
     },
 
-    ui(req, res) {
-        let docUrl = req.protocol + '://' + req.get('Host') + '/swagger/doc'
-        res.redirect(sails.config.swagger.ui.url + '?doc=' + encodeURIComponent(docUrl))
+    ui (req, res) {
+      let docUrl = req.protocol + '://' + req.get('Host') + '/swagger/doc'
+      res.redirect(sails.config.swagger.ui.url + '?doc=' + encodeURIComponent(docUrl))
     }
 }
 
