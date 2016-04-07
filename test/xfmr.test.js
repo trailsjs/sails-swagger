@@ -238,8 +238,8 @@ describe('xfmr', () => {
             var results = xfmr.getDefinitionsFromRouteConfig(sails);
 
             var expectedSwaggerSpec = {
-                "get /groups/:id": {
-                    "GET": {
+                "/groups/{id}": {
+                    "get": {
                         "summary": " Get Groups ",
                         "description": "Get Groups Description",
                         "produces": [
@@ -248,11 +248,15 @@ describe('xfmr', () => {
                         "tags": [
                             "Groups"
                         ],
-                        "responses": [{
-                            "description": "List of Groups",
-                            "schema": "#/definitions/Group",
-                            "type": "array"
-                        }],
+                        "responses": {
+                            "200": {
+                                "description": "List of Groups",
+                                "schema": {
+                                    "$ref": "#/definitions/group"
+                                },
+                                "type": "array"
+                            }
+                        },
                         "parameters": [{
                                 "name": "id",
                                 "in": "path",
@@ -262,22 +266,24 @@ describe('xfmr', () => {
                                 "items": {
                                     "type": "string"
                                 },
-                                "collectionFormat": "csv"
+                                "collectionFormat": "csv",
+                                "schema": null
                             }, {
                                 "name": "name",
                                 "in": "query",
                                 "description": "ID of pet to use",
                                 "required": true,
-                                "type": "string"
+                                "type": "string",
+                                "schema": null
                             },
-                            "#/definitions/Contact"
+                            "#/definitions/contact"
                         ]
                     }
                 }
             };
 
-            assert.equal(true,  _.isEqual(results, expectedSwaggerSpec));
-            
+            assert.equal(true, _.isEqual(results, expectedSwaggerSpec));
+
         })
 
     })
