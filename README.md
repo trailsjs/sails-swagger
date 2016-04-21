@@ -4,10 +4,9 @@
 [![Build status][ci-image]][ci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 [![Code Climate][codeclimate-image]][codeclimate-url]
-[![Sails Version][sails-version-image]][sails-url]
 
 
-[swagger.io](http://swagger.io/) (v2.0) hook for [Sails](http://sailsjs.org). The application's models, controllers, and routes are aggregated and transformed into a Swagger Document. Supports the Swagger 2.0 specification.
+[swagger.io](http://swagger.io/) (v2.0) hook for Sails. The application's models, controllers, and routes are aggregated and transformed into a Swagger Document. Supports the Swagger 2.0 specification.
 
 ## Install
 
