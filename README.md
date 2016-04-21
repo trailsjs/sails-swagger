@@ -1,4 +1,4 @@
-# <img src="http://cdn.tjw.io/images/sails-logo.png" height='43px' /> swagger
+# sails-swagger
 
 [![NPM version][npm-image]][npm-url]
 [![Build status][ci-image]][ci-url]
@@ -36,7 +36,7 @@ After installing and configuring swagger, you can find the docs output on the [/
 MIT
 
 ## Maintained By
-##### [<img src='http://i.imgur.com/zM0ynQk.jpg' height='34px'>](http://balderdash.io)
+[<img src='http://i.imgur.com/Y03Jgmf.png' height='64px'>](http://langa.io)
 
 [sails-version-image]: https://goo.gl/gTUV5x
 [sails-url]: http://sailsjs.org
