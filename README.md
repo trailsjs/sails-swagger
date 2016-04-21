@@ -41,9 +41,9 @@ MIT
 [sails-url]: http://sailsjs.org
 [npm-image]: https://img.shields.io/npm/v/sails-swagger.svg?style=flat
 [npm-url]: https://npmjs.org/package/sails-swagger
-[ci-image]: https://img.shields.io/travis/tjwebb/sails-swagger/master.svg?style=flat
-[ci-url]: https://travis-ci.org/tjwebb/sails-swagger
-[daviddm-image]: http://img.shields.io/david/tjwebb/sails-swagger.svg?style=flat
-[daviddm-url]: https://david-dm.org/tjwebb/sails-swagger
-[codeclimate-image]: https://img.shields.io/codeclimate/github/tjwebb/sails-swagger.svg?style=flat
-[codeclimate-url]: https://codeclimate.com/github/tjwebb/sails-swagger
+[ci-image]: https://img.shields.io/travis/langateam/sails-swagger/master.svg?style=flat
+[ci-url]: https://travis-ci.org/langateam/sails-swagger
+[daviddm-image]: http://img.shields.io/david/langateam/sails-swagger.svg?style=flat
+[daviddm-url]: https://david-dm.org/langateam/sails-swagger
+[codeclimate-image]: https://img.shields.io/codeclimate/github/langateam/sails-swagger.svg?style=flat
+[codeclimate-url]: https://codeclimate.com/github/langateam/sails-swagger
